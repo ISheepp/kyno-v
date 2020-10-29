@@ -10,6 +10,7 @@ public class RespBean {
     private String msg;
     private Object obj;
 
+
     public static RespBean ok(String msg) {
         return new RespBean(200, msg, null);
     }
@@ -19,7 +20,7 @@ public class RespBean {
     }
 
     public static RespBean error(String msg) {
-        return new RespBean(200, msg, null);
+        return new RespBean(500, msg, null);
     }
 
     public static RespBean error(String msg, Object obj) {

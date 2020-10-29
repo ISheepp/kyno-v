@@ -1,17 +1,25 @@
 package com.codelin.mapper;
 
-import com.codelin.bean.JObLevel;
+import com.codelin.bean.JobLevel;
+import org.apache.ibatis.annotations.Param;
 
-public interface JObLevelMapper {
+import java.util.List;
+
+public interface JobLevelMapper {
     int deleteByPrimaryKey(Integer id);
 
-    int insert(JObLevel record);
+    int insert(JobLevel record);
 
-    int insertSelective(JObLevel record);
+    int insertSelective(JobLevel record);
 
-    JObLevel selectByPrimaryKey(Integer id);
+    JobLevel selectByPrimaryKey(Integer id);
 
-    int updateByPrimaryKeySelective(JObLevel record);
+    int updateByPrimaryKeySelective(JobLevel record);
 
-    int updateByPrimaryKey(JObLevel record);
+    int updateByPrimaryKey(JobLevel record);
+
+    List<JobLevel> getAllJobLevel();
+
+    // 批量删除
+    Integer deleteMany(@Param("ids") Integer[] ids);
 }

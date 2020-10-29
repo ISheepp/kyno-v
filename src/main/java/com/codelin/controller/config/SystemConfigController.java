@@ -1,4 +1,4 @@
-package com.codelin.controller;
+package com.codelin.controller.config;
 
 import com.codelin.bean.Menu;
 import com.codelin.service.MenuService;
