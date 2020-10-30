@@ -20,4 +20,10 @@ class KynoVApplicationTests {
         System.out.println(positionService.updatePosition(position));
     }
 
+    @Test
+    public void testArr(){
+        String[] test = {"1", "2", "3"};
+        System.out.println(test.length);
+    }
+
 }
