@@ -125,6 +125,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 })
                 .permitAll()
                 .and()
+                // 请求地址默认为/logout
                 .logout()
                 .logoutSuccessHandler(new LogoutSuccessHandler() {
                     // 注销登录
