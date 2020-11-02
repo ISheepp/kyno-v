@@ -1,6 +1,5 @@
 package com.codelin.service;
 
-import com.codelin.bean.Menu;
 import com.codelin.bean.Role;
 import com.codelin.mapper.RoleMapper;
 import org.springframework.beans.factory.annotation.Autowired;

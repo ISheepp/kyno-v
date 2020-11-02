@@ -35,7 +35,7 @@ public class PositionController {
         //     return RespBean.ok("添加成功");
         // }
         // return RespBean.error("添加失败");
-        // TODO: 2020/10/28  
+        // TODO: 2020/10/28 已解决，前端须传json对象
         if (positionService.addPosition(position) == 1) {
                return RespBean.ok("添加成功");
         }

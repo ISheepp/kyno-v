@@ -46,7 +46,7 @@ public class MenuService {
     @Transactional
     public boolean updateMenuRole(Integer rid, Integer[] mids) {
         menuRoleMapper.deleteByRid(rid);
-        // todo
+        // todo 不理解length
         Integer result = menuRoleMapper.insertRecord(rid, mids);
         return result == mids.length;
     }

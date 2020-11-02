@@ -78,7 +78,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .usernameParameter("username")
                 .passwordParameter("password")
                 .loginProcessingUrl("/doLogin")
-                .loginPage("/login") // 返回一个json
+                // .loginPage("/login") // 返回一个json
                 .successHandler(new AuthenticationSuccessHandler() {
                     // 登陆成功
                     @Override
@@ -89,7 +89,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                         PrintWriter out = resp.getWriter();
                         Hr hr = (Hr) authentication.getPrincipal();
                         hr.setPassword(null); // 将返回的json字符串中的密码设置为空 或者去bean里加@JsonIgnore（不推荐）
-                        RespBean ok = RespBean.ok("登陆成功！", hr);
+                        RespBean ok = RespBean.ok("登陆成功", hr);
                         String s = new ObjectMapper().writeValueAsString(ok);
                         out.write(s);
                         out.flush();
@@ -134,7 +134,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                                                 Authentication authentication) throws IOException, ServletException {
                         resp.setContentType("application/json; charset=UTF-8");
                         PrintWriter out = resp.getWriter();
-                        out.write(new ObjectMapper().writeValueAsString(RespBean.ok("注销成功！")));
+                        out.write(new ObjectMapper().writeValueAsString(RespBean.ok("注销成功")));
                         out.flush();
                         out.close();
                     }
@@ -149,6 +149,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
             public void commence(HttpServletRequest req, HttpServletResponse resp,
                                  AuthenticationException authException) throws IOException, ServletException {
                 resp.setContentType("application/json;charset=utf-8");
+                // 设置一个响应码,401是没有认证,403没有授权
+                resp.setStatus(401);
                 PrintWriter out = resp.getWriter();
                 RespBean respBean = RespBean.error("访问失败！");
                 if (authException instanceof InsufficientAuthenticationException) {
