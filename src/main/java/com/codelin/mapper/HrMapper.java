@@ -2,6 +2,7 @@ package com.codelin.mapper;
 
 import com.codelin.bean.Hr;
 import com.codelin.bean.Role;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -21,4 +22,7 @@ public interface HrMapper {
     Hr loadUserByUsername(String username);
 
     List<Role> getHrRolesById(Integer id);
+
+    List<Hr> getAllHrs(@Param("hrid") Integer hrid, @Param("keywords") String keywords);
+
 }
