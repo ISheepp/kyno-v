@@ -56,7 +56,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     public void configure(WebSecurity web) throws Exception {
-        web.ignoring().antMatchers("/login"); // 访问login页不用经过springSecurity拦截,直接访问
+        web.ignoring().antMatchers("/login", "/hello", "/test"); // 访问login页不用经过springSecurity拦截,直接访问
     }
 
     // 取消页面跳转

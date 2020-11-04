@@ -11,10 +11,6 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class HelloController {
 
-    @GetMapping("/hello")
-    public String hello() {
-        return "hello";
-    }
 
     @GetMapping("/employee/basic/hello")
     public String hello2() {
@@ -25,4 +21,8 @@ public class HelloController {
     public String hello3() {
         return "/employee/advanced/hello";
     }
+
+
+
+
 }
