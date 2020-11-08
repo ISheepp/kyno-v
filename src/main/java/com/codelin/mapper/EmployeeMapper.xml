@@ -60,6 +60,10 @@
     beginContract, endContract, workAge
   </sql>
 
+  <select id="getMaxWorkID" resultType="Integer">
+    select max(workID) from employee
+  </select>
+
   <select id="getTotal" resultType="Long">
     select count(*)
     from employee
