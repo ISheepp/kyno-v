@@ -20,6 +20,12 @@
     id, name, parentId, depPath, enabled, isParent
   </sql>
 
+  <select id="getAllDepartmentsWithoutChildren" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List"></include>
+    from department
+  </select>
+
   <select id="deleteDepById" statementType="CALLABLE">
     call deleteDep(#{id, mode=IN,jdbcType=INTEGER}, #{result, mode=OUT,jdbcType=INTEGER});
   </select>
