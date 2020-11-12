@@ -12,6 +12,11 @@
     <artifactId>kyno-v-service</artifactId>
 
     <dependencies>
+        <!--消息中间件-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-amqp</artifactId>
+        </dependency>
         <dependency>
             <groupId>com.codelin</groupId>
             <artifactId>kyno-v-mapper</artifactId>

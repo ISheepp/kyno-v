@@ -4,7 +4,11 @@ import com.codelin.bean.Employee;
 import com.codelin.bean.RespPageBean;
 import com.codelin.mapper.EmployeeMapper;
 import com.sun.org.apache.bcel.internal.generic.NEW;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.amqp.RabbitTemplateConfigurer;
 import org.springframework.stereotype.Service;
 
 import java.text.DecimalFormat;
@@ -20,8 +24,13 @@ import java.util.List;
 @Service
 public class EmployeeService {
 
+    public static final Logger logger = LoggerFactory.getLogger(EmployeeService.class);
+
     @Autowired
     EmployeeMapper employeeMapper;
+
+    @Autowired
+    RabbitTemplate rabbitTemplate;
 
     SimpleDateFormat yearFormat = new SimpleDateFormat("yyyy");
     SimpleDateFormat monthFormat = new SimpleDateFormat("MM");
@@ -49,7 +58,15 @@ public class EmployeeService {
                 (Double.parseDouble(yearFormat.format(endContract)) - Double.parseDouble(yearFormat.format(beginContract))) * 12 +
                 (Double.parseDouble(monthFormat.format(endContract)) - Double.parseDouble(monthFormat.format(beginContract)));
         employee.setContractTerm(Double.parseDouble(decimalFormat.format(month / 12)));
-        return employeeMapper.insertSelective(employee);
+        int result = employeeMapper.insertSelective(employee);
+        if (result == 1) {
+            // 主键回填
+            Employee emp = employeeMapper.getEmployeeById(employee.getId());
+            logger.info(emp.toString());
+            // 第二个参数是发送的对象
+            rabbitTemplate.convertAndSend("ISheep.mail.welcome", emp);
+        }
+        return result;
     }
 
     public Integer maxWorkID() {

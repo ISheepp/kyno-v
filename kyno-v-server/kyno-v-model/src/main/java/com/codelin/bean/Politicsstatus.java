@@ -1,8 +1,9 @@
 package com.codelin.bean;
 
+import java.io.Serializable;
 import java.util.Objects;
 
-public class Politicsstatus {
+public class Politicsstatus implements Serializable {
     public Politicsstatus() {
     }
 

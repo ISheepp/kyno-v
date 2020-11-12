@@ -2,9 +2,10 @@ package com.codelin.bean;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class Employee {
+public class Employee implements Serializable {
     @Override
     public String toString() {
         return "Employee{" +
@@ -32,7 +33,7 @@ public class Employee {
                 ", workID='" + workID + '\'' +
                 ", contractTerm=" + contractTerm +
                 ", conversionTime=" + conversionTime +
-                ", notworkDate=" + notworkDate +
+                ", notworkDate=" + notWorkDate +
                 ", beginContract=" + beginContract +
                 ", endContract=" + endContract +
                 ", workAge=" + workAge +
@@ -93,13 +94,21 @@ public class Employee {
     @JsonFormat(pattern = "yyyy-MM-dd", timezone = "Asia/Shanghai")
     private Date conversionTime;
     @JsonFormat(pattern = "yyyy-MM-dd", timezone = "Asia/Shanghai")
-    private Date notworkDate;
+    private Date notWorkDate;
     @JsonFormat(pattern = "yyyy-MM-dd", timezone = "Asia/Shanghai")
     private Date beginContract;
     @JsonFormat(pattern = "yyyy-MM-dd", timezone = "Asia/Shanghai")
     private Date endContract;
 
     private Integer workAge;
+
+    public Date getNotWorkDate() {
+        return notWorkDate;
+    }
+
+    public void setNotWorkDate(Date notWorkDate) {
+        this.notWorkDate = notWorkDate;
+    }
 
     private Nation nation;
     private Politicsstatus politicsstatus;
@@ -339,13 +348,7 @@ public class Employee {
         this.conversionTime = conversionTime;
     }
 
-    public Date getNotworkDate() {
-        return notworkDate;
-    }
 
-    public void setNotworkDate(Date notworkDate) {
-        this.notworkDate = notworkDate;
-    }
 
     public Date getBeginContract() {
         return beginContract;

@@ -2,11 +2,12 @@ package com.codelin.bean;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
+import java.io.Serializable;
 import java.util.Date;
 import java.util.Objects;
 
 // 职位
-public class Position {
+public class Position implements Serializable {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
