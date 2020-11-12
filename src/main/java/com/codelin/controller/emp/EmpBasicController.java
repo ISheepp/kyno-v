@@ -10,6 +10,8 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.Arrays;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -38,8 +40,10 @@ public class EmpBasicController {
     // 默认第一个，每页10条记录
     @GetMapping("/")
     public RespPageBean getEmployeeByPage(@RequestParam(defaultValue = "1") Integer page,
-                                          @RequestParam(defaultValue = "10") Integer size, String keyword) {
-        return employeeService.getEmployByPage(page, size, keyword);
+                                          @RequestParam(defaultValue = "10") Integer size, Employee employee, Date[] beginDateScope) {
+        System.out.println(employee);
+        System.out.println(Arrays.toString(beginDateScope));
+        return employeeService.getEmployByPage(page, size, employee, beginDateScope);
     }
 
     @PostMapping("/")
@@ -104,7 +108,7 @@ public class EmpBasicController {
     @GetMapping("/export")
     public ResponseEntity<byte[]> exportData() {
         // 查到所有员工的数据
-        List<Employee> list = (List<Employee>) employeeService.getEmployByPage(null, null, null).getData();
+        List<Employee> list = (List<Employee>) employeeService.getEmployByPage(null, null, null, null).getData();
         // 生成excel再返回responseEntity
         return PoiUtils.employee2Excel(list);
     }

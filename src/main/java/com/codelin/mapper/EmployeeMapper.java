@@ -3,6 +3,7 @@ package com.codelin.mapper;
 import com.codelin.bean.Employee;
 import org.apache.ibatis.annotations.Param;
 
+import java.util.Date;
 import java.util.List;
 
 public interface EmployeeMapper {
@@ -18,9 +19,9 @@ public interface EmployeeMapper {
 
     int updateByPrimaryKey(Employee record);
 
-    List<Employee> getEmployByPage(@Param("page") Integer page, @Param("size") Integer size, @Param("keyword") String keyword);
+    List<Employee> getEmployByPage(@Param("page") Integer page, @Param("size") Integer size, @Param("emp") Employee employee, @Param("beginDateScope") Date[] beginDateScope);
 
-    Long getTotal(String keyword);
+    Long getTotal(@Param("emp") Employee employee, @Param("beginDateScope") Date[] beginDateScope);
 
     Integer getMaxWorkID();
 

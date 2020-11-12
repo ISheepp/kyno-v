@@ -36,11 +36,7 @@ class KynoVApplicationTests {
 
     @Test
     public void testEmp(){
-        RespPageBean employByPage = employeeService.getEmployByPage(3, 4,"asd");
-        List<Employee> data = (List<Employee>) employByPage.getData();
-        for (Employee datum : data) {
-            System.out.println(datum.getName());
-        }
+
     }
 
 }

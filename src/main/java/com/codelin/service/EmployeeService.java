@@ -28,13 +28,13 @@ public class EmployeeService {
     // 处理数字的format，计算结果保留两位小数
     DecimalFormat decimalFormat = new DecimalFormat("##.00");
 
-    public RespPageBean getEmployByPage(Integer page, Integer size, String keyword) {
+    public RespPageBean getEmployByPage(Integer page, Integer size, Employee employee, Date[] beginDateScope) {
         // TODO: 2020/11/3 不理解
         if (page != null && size != null) {
             page = (page - 1) * size;
         }
-        List<Employee> data = employeeMapper.getEmployByPage(page, size, keyword);
-        Long total = employeeMapper.getTotal(keyword);
+        List<Employee> data = employeeMapper.getEmployByPage(page, size, employee, beginDateScope);
+        Long total = employeeMapper.getTotal(employee, beginDateScope);
         RespPageBean bean = new RespPageBean();
         bean.setData(data);
         bean.setTotal(total);
