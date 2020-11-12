@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/kyno-v.iml" filepath="$PROJECT_DIR$/kyno-v.iml" />
+      <module fileurl="file://$PROJECT_DIR$/kyno-v-server/kyno-v-mapper/kyno-v-mapper.iml" filepath="$PROJECT_DIR$/kyno-v-server/kyno-v-mapper/kyno-v-mapper.iml" />
+      <module fileurl="file://$PROJECT_DIR$/kyno-v-server/kyno-v-model/kyno-v-model.iml" filepath="$PROJECT_DIR$/kyno-v-server/kyno-v-model/kyno-v-model.iml" />
+      <module fileurl="file://$PROJECT_DIR$/kyno-v-server/kyno-v-server.iml" filepath="$PROJECT_DIR$/kyno-v-server/kyno-v-server.iml" />
+      <module fileurl="file://$PROJECT_DIR$/kyno-v-server/kyno-v-service/kyno-v-service.iml" filepath="$PROJECT_DIR$/kyno-v-server/kyno-v-service/kyno-v-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/kyno-v-server/kyno-v-web/kyno-v-web.iml" filepath="$PROJECT_DIR$/kyno-v-server/kyno-v-web/kyno-v-web.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mailserver/mailserver.iml" filepath="$PROJECT_DIR$/mailserver/mailserver.iml" />
+    </modules>
+  </component>
+</project>
