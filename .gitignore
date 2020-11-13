@@ -2,16 +2,13 @@
 # Reference: https://intellij-support.jetbrains.com/hc/en-us/articles/206544839
 
 .idea/
-haque-back/.idea/
-haque-back/target/
-haque-back/haque.iml
 
 mailserver/src/main/resources/application.properties
-mailserver/target
-kyno-v-server/kyno-v-mapper/target
-kyno-v-server/kyno-v-model/target
-kyno-v-server/kyno-v-service/target
-kyno-v-server/kyno-v-web/target
+mailserver/target/
+kyno-v-server/kyno-v-mapper/target/
+kyno-v-server/kyno-v-model/target/
+kyno-v-server/kyno-v-service/target/
+kyno-v-server/kyno-v-web/target/
 
 
 # User-specific stuff
