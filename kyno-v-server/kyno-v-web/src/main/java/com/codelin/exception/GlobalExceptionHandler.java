@@ -12,7 +12,7 @@ import java.sql.SQLIntegrityConstraintViolationException;
  * @create 2020/10/28 16:31
  */
 // 全局异常处理
-// @RestControllerAdvice
+@RestControllerAdvice
 public class GlobalExceptionHandler {
 
     @ExceptionHandler(SQLException.class)
