@@ -28,4 +28,8 @@ public interface EmployeeMapper {
     Integer addEmps(@Param("list") List<Employee> list);
 
     Employee getEmployeeById(Integer id);
+
+    List<Employee> getEmployeeByPageWithSalary(@Param("page") Integer page, @Param("size") Integer size);
+
+    Integer updateEmployeeSalaryById(@Param("eid") Integer eid, @Param("sid") Integer sid);
 }

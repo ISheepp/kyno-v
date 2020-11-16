@@ -45,6 +45,16 @@ public class Employee implements Serializable {
                 '}';
     }
 
+    private Salary salary;
+
+    public Salary getSalary() {
+        return salary;
+    }
+
+    public void setSalary(Salary salary) {
+        this.salary = salary;
+    }
+
     private Integer id;
 
     private String name;

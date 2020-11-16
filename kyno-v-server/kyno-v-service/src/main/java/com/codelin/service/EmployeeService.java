@@ -1,6 +1,7 @@
 package com.codelin.service;
 
 import com.codelin.bean.Employee;
+import com.codelin.bean.RespBean;
 import com.codelin.bean.RespPageBean;
 import com.codelin.mapper.EmployeeMapper;
 import com.sun.org.apache.bcel.internal.generic.NEW;
@@ -83,5 +84,20 @@ public class EmployeeService {
 
     public Integer addEmps(List<Employee> list) {
         return employeeMapper.addEmps(list);
+    }
+
+    public RespPageBean getEmployeeByPageWithSalary(Integer page, Integer size) {
+        if (page != null && size != null) {
+            page = (page - 1) * size;
+        }
+        List<Employee> list = employeeMapper.getEmployeeByPageWithSalary(page,size);
+        RespPageBean respPageBean = new RespPageBean();
+        respPageBean.setData(list);
+        respPageBean.setTotal(employeeMapper.getTotal(null, null));
+        return respPageBean;
+    }
+
+    public Integer updateEmployeeSalaryById(Integer eid, Integer sid) {
+        return employeeMapper.updateEmployeeSalaryById(eid, sid);
     }
 }

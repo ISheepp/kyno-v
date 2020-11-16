@@ -34,6 +34,7 @@ public class Hr implements UserDetails {
 
     private List<Role> roles;
 
+
     public List<Role> getRoles() {
         return roles;
     }
