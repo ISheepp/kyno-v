@@ -5,7 +5,6 @@ import com.codelin.bean.Menu;
 import com.codelin.mapper.MenuMapper;
 import com.codelin.mapper.MenuRoleMapper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cache.annotation.Cacheable;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
