@@ -9,7 +9,7 @@ kyno-v-server/kyno-v-mapper/target/
 kyno-v-server/kyno-v-model/target/
 kyno-v-server/kyno-v-service/target/
 kyno-v-server/kyno-v-web/target/
-
+kyno-v.iml
 
 # User-specific stuff
 .idea/**/workspace.xml
